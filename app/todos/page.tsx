@@ -1,6 +1,7 @@
 import { TodoList } from "@/components/todo-list";
 import { Separator } from "@/components/ui/separator";
 import { createClient } from "@/utils/supabase/server";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function TodosPage() {
@@ -25,11 +26,20 @@ export default async function TodosPage() {
       </h1>
       <Separator className="w-full " />
       {/* <TodoList todos={project ?? []} /> */}
-      <ul className="list-disc font-bold text-xl mb-2">
+      {/* <ul className="list-disc font-bold text-xl mb-2">
       {project?.map((project) => (
         <li className="bg-[#181818] text-[#fff] p-10 m-5 rounded-3xl"><a href="#">{project.name}</a></li>
       ))}
-      </ul>
+      </ul> */}
+      <ul className="list-disc font-bold text-xl mb-2">
+      {project?.map((project) => (
+        <li key={project.id} className="bg-[#181818] text-[#fff] p-10 m-5 rounded-3xl">
+          <Link href={`/projects/${encodeURIComponent(project.name)}`}>
+            {project.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
     </section>
   );
 }
