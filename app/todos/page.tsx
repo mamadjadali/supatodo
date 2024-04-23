@@ -27,7 +27,7 @@ export default async function TodosPage() {
       {/* <TodoList todos={project ?? []} /> */}
       <ul className="list-disc font-bold text-xl mb-2">
       {project?.map((project) => (
-        <li className="bg-[#181818] text-[#fff] p-10 m-5 rounded-3xl">{project.name}</li>
+        <li className="bg-[#181818] text-[#fff] p-10 m-5 rounded-3xl"><a href="#">{project.name}</a></li>
       ))}
       </ul>
     </section>
