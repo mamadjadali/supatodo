@@ -9,37 +9,23 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      todos: {
+      project: {
         Row: {
+          created_at: string
           id: number
-          inserted_at: string
-          is_complete: boolean | null
-          task: string | null
-          user_id: string
+          name: string | null
         }
         Insert: {
+          created_at?: string
           id?: number
-          inserted_at?: string
-          is_complete?: boolean | null
-          task?: string | null
-          user_id: string
+          name?: string | null
         }
         Update: {
+          created_at?: string
           id?: number
-          inserted_at?: string
-          is_complete?: boolean | null
-          task?: string | null
-          user_id?: string
+          name?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "todos_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
     }
     Views: {
